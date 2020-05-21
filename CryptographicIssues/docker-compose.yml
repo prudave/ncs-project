@@ -2,12 +2,11 @@ version: '3.3'
 
 services:
 
-  software:
-    build:
-      context: './build/php-apache'
+  domainmod:
+    image: prudave/domainmod:latest
     container_name: 'software'
     depends_on:
-      - 'database'
+      - 'domainmoddb'
     networks:
       - 'frontend'
       - 'backend'
@@ -16,9 +15,8 @@ services:
       - '443:80'
     restart: 'always'
 
-  database:
-    build:
-      context: './build/mariadb'
+  domainmoddb:
+    image: prudave/domainmoddb:latest
     container_name: 'database'
     environment:
       TZ: 'America/Vancouver'

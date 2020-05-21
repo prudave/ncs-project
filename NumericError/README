@@ -1,0 +1,7 @@
+README
+
+docker pull prudave/ncs-ffjpeg
+
+docker run --rm -v "$PWD/poc":/ffjpeg/poc:z --name ncs-ffjpeg prudave/ncs-ffjpeg
+
+
